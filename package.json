@@ -183,5 +183,13 @@
     "type": "module-legacy",
     "languages": "kotlin-objc",
     "version": "0.41.2"
+  },
+  "codegenConfig": {
+    "name": "NewArchTricksSpec",
+    "type": "all",
+    "jsSrcsDir": "./src/specs",
+    "android": {
+      "javaPackageName": "com.newarchtricks"
+    }
   }
 }

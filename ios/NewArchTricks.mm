@@ -1,19 +1,25 @@
 #import "NewArchTricks.h"
 
+#import <React/RCTBridge+Private.h>
+#import <React/RCTBridge.h>
+#import <React/RCTBridgeModule.h>
+#import <React/RCTUtils.h>
+#import <ReactCommon/CallInvoker.h>
+#import <ReactCommon/RCTTurboModule.h>
+
+#import <react/renderer/uimanager/primitives.h>
+
 @implementation NewArchTricks
 RCT_EXPORT_MODULE()
 
-// Example method
-// See // https://reactnative.dev/docs/native-modules-ios
-RCT_EXPORT_METHOD(multiply:(double)a
-                  b:(double)b
-                  resolve:(RCTPromiseResolveBlock)resolve
-                  reject:(RCTPromiseRejectBlock)reject)
+- (NSNumber *)multiply:(double)a b:(double)b
 {
-    NSNumber *result = @(a * b);
-
-    resolve(result);
+    return [[NSNumber alloc] initWithDouble:a * b];
 }
 
+- (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:(const facebook::react::ObjCTurboModule::InitParams &)params
+{
+  return std::make_shared<facebook::react::NativeNewArchTricksModuleSpecJSI>(params);
+}
 
 @end

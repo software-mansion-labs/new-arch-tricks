@@ -1,17 +1,12 @@
-import { useState, useEffect } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-new-arch-tricks';
+import { StyleSheet, View, Pressable } from 'react-native';
+import { NewArchTricksView, multiply } from 'react-native-new-arch-tricks';
 
 export default function App() {
-  const [result, setResult] = useState<number | undefined>();
-
-  useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
-
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Pressable onPress={() => console.log(multiply(3, 7))}>
+        <NewArchTricksView color="#32a852" style={styles.box} />
+      </Pressable>
     </View>
   );
 }
