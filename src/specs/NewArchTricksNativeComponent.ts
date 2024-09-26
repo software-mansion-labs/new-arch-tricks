@@ -5,4 +5,6 @@ interface NativeProps extends ViewProps {
   color: string;
 }
 
-export default codegenNativeComponent<NativeProps>('NewArchTricksView');
+export default codegenNativeComponent<NativeProps>('NewArchTricksView', {
+  interfaceOnly: true,
+});
