@@ -16,6 +16,11 @@ class NewArchTricksViewComponentDescriptor final
   void adopt(ShadowNode &shadowNode) const override {
     react_native_assert(dynamic_cast<NewArchTricksViewShadowNode *>(&shadowNode));
 
+    const auto newArchTricksViewShadowNode = dynamic_cast<NewArchTricksViewShadowNode *>(&shadowNode);
+    const auto state = newArchTricksViewShadowNode->getStateData();
+    
+    newArchTricksViewShadowNode->setSize({state.getStatusBarWidth(), state.getStatusBarHeight()});
+      
     ConcreteComponentDescriptor::adopt(shadowNode);
   }
 };
