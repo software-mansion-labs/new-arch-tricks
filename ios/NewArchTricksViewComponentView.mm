@@ -16,6 +16,7 @@ using namespace facebook::react;
 
 @implementation NewArchTricksViewComponentView {
   UIView *_customView;
+  NewArchTricksViewShadowNode::ConcreteState::Shared _state;
 }
 
 // Needed because of this: https://github.com/facebook/react-native/pull/37274
@@ -37,6 +38,14 @@ using namespace facebook::react;
   return self;
 }
 
+- (void)willMoveToWindow:(UIWindow *)newWindow
+{
+  if (newWindow != nil) {
+    auto statusBarSize = newWindow.windowScene.statusBarManager.statusBarFrame.size;
+    _state->updateState(NewArchTricksViewState(statusBarSize.width, statusBarSize.height));
+  }
+}
+
 - hexStringToColor:(NSString *)stringToConvert
 {
   NSString *noHashString = [stringToConvert stringByReplacingOccurrencesOfString:@"#" withString:@""];
@@ -56,6 +65,11 @@ using namespace facebook::react;
 + (ComponentDescriptorProvider)componentDescriptorProvider
 {
   return concreteComponentDescriptorProvider<NewArchTricksViewComponentDescriptor>();
+}
+
+- (void)updateState:(State::Shared const &)state oldState:(State::Shared const &)oldState
+{
+  _state = std::static_pointer_cast<const NewArchTricksViewShadowNode::ConcreteState>(state);
 }
 
 - (void)updateProps:(const Props::Shared &)props oldProps:(const Props::Shared &)oldProps
