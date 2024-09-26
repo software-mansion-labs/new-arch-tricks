@@ -17,4 +17,10 @@ Pod::Spec.new do |s|
   s.source_files = "ios/**/*.{h,m,mm}"
 
   install_modules_dependencies(s)
+
+  s.subspec "shared" do |ss|
+    ss.source_files         = ["shared/**/*.{cpp,h}"]
+    ss.header_dir           = "NewArchTricks"
+    ss.pod_target_xcconfig  = { "HEADER_SEARCH_PATHS" => "\"$(PODS_TARGET_SRCROOT)/shared\"" }
+  end
 end

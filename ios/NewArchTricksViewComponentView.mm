@@ -3,7 +3,8 @@
 // without this header the provider won't be found by RN
 #import <React/RCTFabricComponentsPlugins.h>
 
-#import <react/renderer/components/NewArchTricksSpec/ComponentDescriptors.h>
+// import custom header so we can use our own component descriptor
+#import <NewArchTricks/NewArchTricksViewComponentDescriptor.h>
 #import <react/renderer/components/NewArchTricksSpec/EventEmitters.h>
 #import <react/renderer/components/NewArchTricksSpec/Props.h>
 #import <react/renderer/components/NewArchTricksSpec/RCTComponentViewHelpers.h>

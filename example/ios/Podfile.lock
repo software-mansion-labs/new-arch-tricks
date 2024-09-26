@@ -1255,6 +1255,28 @@ PODS:
     - React-featureflags
     - React-graphics
     - React-ImageManager
+    - react-native-new-arch-tricks/shared (= 0.1.0)
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - react-native-new-arch-tricks/shared (0.1.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
     - React-NativeModulesApple
     - React-RCTFabric
     - React-rendererdebug
@@ -1772,7 +1794,7 @@ SPEC CHECKSUMS:
   React-logger: 570df622426223fc314aa1c899b9a8b8eae4f6c4
   React-Mapbuffer: 7d195f78e85ebb3af751e2f2d393240b9425ae5c
   React-microtasksnativemodule: 5da824418a8ceaee6352c6bb7f7e7fbe2e92944e
-  react-native-new-arch-tricks: 08a565aa13f0df3c8f4d5cc4fb0a8487699aa847
+  react-native-new-arch-tricks: 6485a71e617f58957226bdb326a1de109bffe3a8
   React-nativeconfig: 93c8e4f994c4cade0e44f5718af7b6bcc8a244e8
   React-NativeModulesApple: 6e9d2410183efdb03576817dd279801440413bca
   React-perflogger: 99e933e6f84d010f10bfaed24a054bc26b306ba0
