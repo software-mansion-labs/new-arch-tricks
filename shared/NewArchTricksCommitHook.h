@@ -22,9 +22,13 @@ public:
       RootShadowNode::Shared const &oldRootShadowNode,
       RootShadowNode::Unshared const &newRootShadowNode)
     noexcept override;
-    
+
+  void registerNode(ShadowNode::Shared node);
+  void unregisterNode(ShadowNode::Shared node);
+
 private:
   std::shared_ptr<UIManager> uiManager_;
+  std::unordered_map<Tag, ShadowNode::Shared> nodes_;
 };
 
 }
