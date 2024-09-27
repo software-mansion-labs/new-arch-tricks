@@ -6,17 +6,20 @@ set(CMAKE_CXX_STANDARD 20)
 
 file(GLOB_RECURSE new_arch_tricks_SRCS CONFIGURE_DEPENDS ../shared/*.cpp)
 file(GLOB_RECURSE new_arch_tricks_codegen_SRCS CONFIGURE_DEPENDS ./build/generated/source/codegen/jni/*.cpp)
+file(GLOB_RECURSE new_arch_tricks_android_SRCS CONFIGURE_DEPENDS ./src/main/cpp/*.cpp)
 
 add_library(
   react_codegen_NewArchTricksSpec
   SHARED
   ${new_arch_tricks_SRCS}
   ${new_arch_tricks_codegen_SRCS}
+  ${new_arch_tricks_android_SRCS}
 )
 
 message(PROJECT_SOURCE_DIR="${new_arch_tricks_SRCS}")
 
 target_include_directories(react_codegen_NewArchTricksSpec PUBLIC ../shared)
+target_include_directories(react_codegen_NewArchTricksSpec PUBLIC ./src/main/cpp)
 target_include_directories(react_codegen_NewArchTricksSpec PUBLIC ./build/generated/source/codegen/jni)
 
 target_link_libraries(
