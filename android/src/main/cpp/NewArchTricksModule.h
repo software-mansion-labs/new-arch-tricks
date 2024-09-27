@@ -1,5 +1,6 @@
 #pragma once
 
+#include <ReactCommon/BindingsInstallerHolder.h>
 #include <react/fabric/JFabricUIManager.h>
 #include <fbjni/fbjni.h>
 #include <NewArchTricksCommitHook.h>
@@ -29,6 +30,8 @@ class NewArchTricksModule : public jni::HybridClass<NewArchTricksModule> {
 
   void createCommitHook(
       jni::alias_ref<facebook::react::JFabricUIManager::javaobject> fabricUIManager);
+
+  jni::local_ref<BindingsInstallerHolder::javaobject> getBindingsInstallerCxx();
 };
 
 } // namespace newarchtricks
