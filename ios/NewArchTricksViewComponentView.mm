@@ -57,6 +57,11 @@ using namespace facebook::react;
   return concreteComponentDescriptorProvider<NewArchTricksViewComponentDescriptor>();
 }
 
++ (BOOL)shouldBeRecycled
+{
+  return NO;
+}
+
 - (void)updateProps:(const Props::Shared &)props oldProps:(const Props::Shared &)oldProps
 {
   const auto &newProps = *std::static_pointer_cast<const NewArchTricksViewProps>(props);
@@ -64,6 +69,12 @@ using namespace facebook::react;
   [_customView setBackgroundColor:[self hexStringToColor:[NSString stringWithUTF8String:newProps.color.c_str()]]];
 
   [super updateProps:props oldProps:oldProps];
+}
+
+- (void)prepareForRecycle
+{
+  [super prepareForRecycle];
+  [_customView setBackgroundColor:UIColor.blackColor];
 }
 @end
 

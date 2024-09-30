@@ -16,6 +16,16 @@ class NewArchTricksViewManager : SimpleViewManager<View>(), NewArchTricksViewMan
   override fun getDelegate() = delegate
   override fun getName() = NAME
 
+  init {
+    setupViewRecycling()
+  }
+
+  override fun prepareToRecycleView(reactContext: ThemedReactContext, view: View): View? {
+    view.setBackgroundColor(Color.BLACK)
+
+    return super.prepareToRecycleView(reactContext, view)
+  }
+
   override fun createViewInstance(reactContext: ThemedReactContext): View {
     return View(reactContext)
   }
